@@ -327,6 +327,19 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Accessibilité : focus visible au clavier */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible,
+.cv-btn:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 /* ------------------------------
    HEADER – STYLE PS5
 --------------------------------*/
@@ -347,6 +360,19 @@ header {
 
 .header-text {
   max-width: 620px;
+}
+
+/* Boutons d'action de l'en-tête */
+.header-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.header-cta .btn,
+.header-cta .btn-secondary {
+  margin-top: 0;
 }
 
 /* Illustrations réseau + dev à côté du texte (compactes) */
@@ -895,5 +921,76 @@ html {
   .intro-socials {
     flex-wrap: wrap;
     gap: 14px;
+  }
+}
+
+/* ------------------------------
+   IMPRESSION (PDF propre)
+--------------------------------*/
+@media print {
+  #code-rain,
+  #anim-toggle,
+  #theme-toggle,
+  #lang-toggle,
+  #back-to-top,
+  nav,
+  .header-visuals,
+  .header-cta,
+  .back-btn {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  header {
+    background: #fff !important;
+    color: #000 !important;
+    min-height: auto;
+    padding: 20px 0;
+  }
+
+  header h1,
+  header h2,
+  header p,
+  section h3,
+  .card,
+  .card h4,
+  .card p,
+  .card li,
+  .timeline-item h4,
+  .timeline-item p,
+  .skill-head {
+    color: #000 !important;
+  }
+
+  .card {
+    background: #fff !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .skill-fill {
+    background: #555 !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  footer {
+    background: #fff !important;
+    color: #000 !important;
   }
 }
