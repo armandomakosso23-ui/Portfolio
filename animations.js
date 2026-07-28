@@ -34,9 +34,9 @@
     function draw() {
       // couleurs adaptées au thème (clair ou sombre), relues à chaque frame
       const isLight = document.body.classList.contains("light-theme");
-      const trail = isLight ? "rgba(226, 232, 240, 0.13)" : "rgba(2, 6, 23, 0.10)";
-      const headColor = isLight ? "#1e3a8a" : "#93c5fd";
-      const bodyColor = isLight ? "#2563eb" : "#3b82f6";
+      const trail = isLight ? "rgba(226, 232, 240, 0.10)" : "rgba(2, 6, 23, 0.10)";
+      const headColor = isLight ? "#0b1120" : "#93c5fd";
+      const bodyColor = isLight ? "#1e3a8a" : "#3b82f6";
 
       // léger voile pour créer la traînée
       ctx.fillStyle = trail;

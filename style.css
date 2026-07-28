@@ -174,7 +174,7 @@ body.light-theme {
   color: #0f172a;
 }
 
-body.light-theme #code-rain { opacity: 0.22; }
+body.light-theme #code-rain { opacity: 0.5; }
 
 body.light-theme nav {
   background: rgba(255, 255, 255, 0.85);
