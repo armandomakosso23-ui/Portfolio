@@ -462,16 +462,17 @@ html {
 }
 
 .intro-avatar {
-  width: 220px;
-  height: 220px;
+  width: 230px;
+  height: 230px;
   object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  transition: 0.4s ease;
+  border-radius: 28px;
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.35);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .intro-avatar:hover {
-  transform: scale(1.05);
+  transform: translateY(-6px) rotate(-1.5deg);
+  box-shadow: 0 28px 55px rgba(56, 189, 248, 0.45);
 }
 
 .intro-right h2 {
