@@ -60,9 +60,10 @@ footer,
   transform: translateY(0);
 }
 
-/* Boutons flottants (animations + thème) */
+/* Boutons flottants (animations + thème + langue) */
 #anim-toggle,
-#theme-toggle {
+#theme-toggle,
+#lang-toggle {
   position: fixed;
   left: 18px;
   z-index: 100;
@@ -75,15 +76,19 @@ footer,
   font-size: 0.85rem;
   cursor: pointer;
   transition: 0.2s;
+  text-decoration: none;
 }
 
 #theme-toggle { bottom: 18px; }
 #anim-toggle  { bottom: 60px; }
+#lang-toggle  { bottom: 102px; }
 
 #anim-toggle:hover,
-#theme-toggle:hover {
+#theme-toggle:hover,
+#lang-toggle:hover {
   border-color: #60a5fa;
   color: #60a5fa;
+  text-decoration: none;
 }
 
 /* Bouton retour en haut */
@@ -204,7 +209,8 @@ body.light-theme footer {
 }
 
 body.light-theme #anim-toggle,
-body.light-theme #theme-toggle {
+body.light-theme #theme-toggle,
+body.light-theme #lang-toggle {
   background: rgba(255, 255, 255, 0.9);
   color: #1e293b;
   border-color: rgba(15, 23, 42, 0.2);
@@ -214,6 +220,28 @@ body.light-theme #theme-toggle {
 nav a.active {
   color: #60a5fa;
   background: rgba(96, 165, 250, 0.15);
+}
+
+/* Logos de technologies */
+.tech-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 18px;
+}
+
+.tech-logos img {
+  width: 36px;
+  height: 36px;
+  padding: 5px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 12px rgba(2, 6, 23, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.tech-logos img:hover {
+  transform: translateY(-3px) scale(1.08);
 }
 
 /* Barres de compétences */

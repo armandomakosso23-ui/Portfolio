@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://armandomakosso23-ui.github.io/Portfolio/sitemap.xml

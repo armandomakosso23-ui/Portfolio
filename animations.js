@@ -200,6 +200,27 @@
   }
 
   /* --------------------------------------------------
+     BOUTON DE LANGUE (FR / EN)
+  ---------------------------------------------------*/
+  function addLangToggle() {
+    const path = location.pathname;
+    const isEN = path.indexOf("/en/") !== -1;
+    const link = document.createElement("a");
+    link.id = "lang-toggle";
+
+    if (isEN) {
+      link.textContent = "🇫🇷 FR";
+      link.setAttribute("aria-label", "Voir la version française");
+      link.href = "../accueil.html";
+    } else {
+      link.textContent = "🇬🇧 EN";
+      link.setAttribute("aria-label", "See the English version");
+      link.href = path.indexOf("/pages/") !== -1 ? "../en/index.html" : "en/index.html";
+    }
+    document.body.appendChild(link);
+  }
+
+  /* --------------------------------------------------
      BOUTON RETOUR EN HAUT
   ---------------------------------------------------*/
   function addBackToTop() {
@@ -225,6 +246,7 @@
     const theme = getTheme();
     applyTheme(theme);
     addThemeToggle(theme);
+    addLangToggle();
     addBackToTop();
 
     const active = getPref() === "on";

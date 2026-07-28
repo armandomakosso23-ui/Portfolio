@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – Armando Makosso</title>
+    <meta name="description" content="Contact Armando Makosso, an IT student (BTS SIO) looking for a web development internship.">
+    <meta name="author" content="Armando Makosso">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact – Armando Makosso">
+    <meta property="og:image" content="../assets/images/avatar.svg">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="contact">
+        <h3>Contact</h3>
+
+        <p>GitHub: <a href="https://github.com/armandomakosso23-ui" target="_blank" rel="noopener">armandomakosso23-ui</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/armando-makosso-b188213b1" target="_blank" rel="noopener">Armando Makosso</a></p>
+        <p>Email: <a href="mailto:armandomakosso23@gmail.com">armandomakosso23@gmail.com</a></p>
+        <p>Location: Île-de-France, France</p>
+
+        <form class="contact-form"
+              action="https://formsubmit.co/armandomakosso23@gmail.com"
+              method="POST">
+            <input type="hidden" name="_subject" value="New message from my portfolio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://armandomakosso23-ui.github.io/Portfolio/en/contact.html">
+
+            <label for="cf-name">Name</label>
+            <input id="cf-name" type="text" name="name" placeholder="Your name" required>
+
+            <label for="cf-email">Email</label>
+            <input id="cf-email" type="email" name="email" placeholder="you@example.com" required>
+
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" placeholder="Your message..." required></textarea>
+
+            <button type="submit" class="cv-btn">Send</button>
+        </form>
+
+        <h3>Resume</h3>
+        <p>My resume is available on request: contact me by email or via the form above.</p>
+
+        <a href="index.html" class="back-btn">← Back</a>
+    </section>
+
+    <footer>© 2026 – Armando Makosso</footer>
+
+    <script src="../animations.js"></script>
+</body>
+</html>
