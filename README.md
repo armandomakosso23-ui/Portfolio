@@ -58,7 +58,7 @@ python -m http.server 8000
 
 - **Email** : armandomakosso23@gmail.com
 - **GitHub** : [armandomakosso23-ui](https://github.com/armandomakosso23-ui)
-- **Localisation** : La Courneuve
+- **Localisation** : Île-de-France
 
 ---
 
