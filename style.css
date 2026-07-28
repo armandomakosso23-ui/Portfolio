@@ -88,6 +88,40 @@ nav a.active {
   background: rgba(96, 165, 250, 0.15);
 }
 
+/* Barres de compétences */
+.skill {
+  margin-bottom: 14px;
+}
+
+.skill-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #d1d5db;
+  margin-bottom: 5px;
+}
+
+.skill-bar {
+  height: 8px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  animation: skill-grow 1.1s ease-out;
+  transform-origin: left;
+}
+
+@keyframes skill-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
 /* Formulaire de contact */
 .contact-form {
   display: flex;

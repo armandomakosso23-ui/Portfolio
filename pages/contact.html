@@ -23,6 +23,7 @@
             <li><a href="competences.html">Compétences</a></li>
             <li><a href="experiences.html">Expériences</a></li>
             <li><a href="projets.html">Projets</a></li>
+            <li><a href="veille.html">Veille</a></li>
             <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
         </ul>
     </nav>
@@ -35,18 +36,20 @@
         <p>Email : <a href="mailto:armandomakosso23@gmail.com">armandomakosso23@gmail.com</a></p>
         <p>Localisation : Île-de-France</p>
 
-        <!-- FORMULAIRE DE CONTACT -->
+        <!-- FORMULAIRE DE CONTACT (via FormSubmit.co, sans compte) -->
         <!--
-          Ce formulaire ouvre le logiciel de messagerie du visiteur (mailto).
-          Pour recevoir les messages directement (sans app mail), créez un compte
-          gratuit sur https://formspree.io puis remplacez la ligne "action" par :
-          action="https://formspree.io/f/VOTRE_ID" method="POST"
-          et supprimez enctype="text/plain".
+          IMPORTANT : au TOUT PREMIER envoi depuis le site en ligne, FormSubmit
+          t'enverra un email d'activation. Clique le lien dedans UNE FOIS pour
+          activer. Ensuite, tous les messages arrivent directement dans ta boîte.
         -->
         <form class="contact-form"
-              action="mailto:armandomakosso23@gmail.com"
-              method="POST"
-              enctype="text/plain">
+              action="https://formsubmit.co/armandomakosso23@gmail.com"
+              method="POST">
+            <input type="hidden" name="_subject" value="Nouveau message depuis mon portfolio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://armandomakosso23-ui.github.io/Portfolio/pages/contact.html">
+
             <label for="cf-name">Nom</label>
             <input id="cf-name" type="text" name="nom" placeholder="Votre nom" required>
 
