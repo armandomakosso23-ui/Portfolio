@@ -155,9 +155,10 @@
     }
   }
 
-  function addToggle(active) {
+  function addToggle(active, parent) {
     const btn = document.createElement("button");
     btn.id = "anim-toggle";
+    btn.className = "settings-item";
     btn.type = "button";
     btn.textContent = active ? "⏸ Animations" : "▶ Animations";
     btn.setAttribute(
@@ -168,7 +169,7 @@
       savePref(active ? "off" : "on");
       location.reload();
     });
-    document.body.appendChild(btn);
+    parent.appendChild(btn);
   }
 
   /* --------------------------------------------------
@@ -186,9 +187,10 @@
     document.body.classList.toggle("light-theme", theme === "light");
   }
 
-  function addThemeToggle(theme) {
+  function addThemeToggle(theme, parent) {
     const btn = document.createElement("button");
     btn.id = "theme-toggle";
+    btn.className = "settings-item";
     btn.type = "button";
     function setLabel(t) {
       btn.textContent = t === "light" ? "🌙 Sombre" : "☀️ Clair";
@@ -202,7 +204,7 @@
       try { localStorage.setItem("theme", next); } catch (e) {}
       setLabel(next);
     });
-    document.body.appendChild(btn);
+    parent.appendChild(btn);
   }
 
   /* --------------------------------------------------
@@ -239,18 +241,63 @@
 
     const link = document.createElement("a");
     link.id = "lang-toggle";
+    link.className = "settings-item";
 
     if (isEN) {
-      link.textContent = "🇫🇷 FR";
+      link.textContent = "🇫🇷 Français";
       link.setAttribute("aria-label", "Voir la version française");
       link.href = "../" + (toFR[file] || "accueil.html");
     } else {
-      link.textContent = "🇬🇧 EN";
+      link.textContent = "🇬🇧 English";
       link.setAttribute("aria-label", "See the English version");
       const prefix = path.indexOf("/pages/") !== -1 ? "../en/" : "en/";
       link.href = prefix + (toEN[file] || "index.html");
     }
-    document.body.appendChild(link);
+    parent.appendChild(link);
+  }
+
+  /* --------------------------------------------------
+     PANNEAU DE RÉGLAGES (engrenage)
+  ---------------------------------------------------*/
+  function buildSettings(active, theme) {
+    const wrap = document.createElement("div");
+    wrap.id = "settings";
+
+    const panel = document.createElement("div");
+    panel.id = "settings-panel";
+    panel.hidden = true;
+
+    const gear = document.createElement("button");
+    gear.id = "settings-toggle";
+    gear.type = "button";
+    gear.textContent = "⚙️";
+    gear.setAttribute("aria-label", "Réglages");
+    gear.setAttribute("aria-expanded", "false");
+    gear.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const open = panel.hidden;
+      panel.hidden = !open;
+      gear.setAttribute("aria-expanded", String(open));
+      gear.classList.toggle("open", open);
+    });
+
+    // Ferme le panneau si on clique ailleurs
+    document.addEventListener("click", function (e) {
+      if (!wrap.contains(e.target)) {
+        panel.hidden = true;
+        gear.setAttribute("aria-expanded", "false");
+        gear.classList.remove("open");
+      }
+    });
+
+    // Contrôles regroupés dans le panneau
+    addThemeToggle(theme, panel);
+    addToggle(active, panel);
+    addLangToggle(panel);
+
+    wrap.appendChild(panel);
+    wrap.appendChild(gear);
+    document.body.appendChild(wrap);
   }
 
   /* --------------------------------------------------
@@ -278,8 +325,6 @@
     // Thème et retour-en-haut : toujours actifs (indépendants des animations)
     const theme = getTheme();
     applyTheme(theme);
-    addThemeToggle(theme);
-    addLangToggle();
     addBackToTop();
 
     const active = getPref() === "on";
@@ -287,7 +332,7 @@
       initCodeRain();
       initReveal();
     }
-    addToggle(active);
+    buildSettings(active, theme);
   }
 
   if (document.readyState === "loading") {
