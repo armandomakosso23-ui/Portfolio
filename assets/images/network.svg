@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" width="280" height="220" role="img" aria-label="Illustration réseau - topologie type Cisco Packet Tracer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" width="280" height="220" role="img" aria-label="Illustration réseau - topologie type Cisco Packet Tracer, tous les liens actifs (verts)">
   <defs>
     <linearGradient id="ncard" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#111a2e"/>
@@ -8,15 +8,31 @@
       <stop offset="0" stop-color="#2563eb"/>
       <stop offset="1" stop-color="#38bdf8"/>
     </linearGradient>
+    <filter id="nglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
 
   <rect x="6" y="6" width="268" height="208" rx="24" fill="url(#ncard)" stroke="url(#nacc)" stroke-width="2"/>
 
   <!-- liens -->
-  <g stroke="#38bdf8" stroke-width="2.5" opacity="0.7">
-    <line x1="140" y1="70" x2="60" y2="150"/>
-    <line x1="140" y1="70" x2="140" y2="150"/>
-    <line x1="140" y1="70" x2="220" y2="150"/>
+  <g stroke="#38bdf8" stroke-width="2.5" opacity="0.6">
+    <line x1="140" y1="88" x2="60" y2="150"/>
+    <line x1="140" y1="88" x2="140" y2="150"/>
+    <line x1="140" y1="88" x2="220" y2="150"/>
+  </g>
+
+  <!-- indicateurs de lien VERTS (style Packet Tracer : tout est up) -->
+  <g fill="#27c93f" filter="url(#nglow)">
+    <!-- côté routeur -->
+    <rect x="120" y="94" width="8" height="8" rx="2"/>
+    <rect x="136" y="98" width="8" height="8" rx="2"/>
+    <rect x="152" y="94" width="8" height="8" rx="2"/>
+    <!-- côté postes -->
+    <rect x="66"  y="140" width="8" height="8" rx="2"/>
+    <rect x="136" y="140" width="8" height="8" rx="2"/>
+    <rect x="206" y="140" width="8" height="8" rx="2"/>
   </g>
 
   <!-- routeur central -->
