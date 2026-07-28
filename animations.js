@@ -205,17 +205,44 @@
   function addLangToggle() {
     const path = location.pathname;
     const isEN = path.indexOf("/en/") !== -1;
+    const file = path.substring(path.lastIndexOf("/") + 1) || "index.html";
+
+    // Correspondance FR -> EN (nom de fichier dans en/)
+    const toEN = {
+      "accueil.html": "index.html",
+      "index.html": "index.html",
+      "apropos.html": "about.html",
+      "competences.html": "skills.html",
+      "experiences.html": "experience.html",
+      "projets.html": "projects.html",
+      "veille.html": "watch.html",
+      "situations.html": "situations.html",
+      "contact.html": "contact.html"
+    };
+    // Correspondance EN -> FR (chemin relatif à la racine)
+    const toFR = {
+      "index.html": "accueil.html",
+      "about.html": "pages/apropos.html",
+      "skills.html": "pages/competences.html",
+      "experience.html": "pages/experiences.html",
+      "projects.html": "pages/projets.html",
+      "watch.html": "pages/veille.html",
+      "situations.html": "pages/situations.html",
+      "contact.html": "pages/contact.html"
+    };
+
     const link = document.createElement("a");
     link.id = "lang-toggle";
 
     if (isEN) {
       link.textContent = "🇫🇷 FR";
       link.setAttribute("aria-label", "Voir la version française");
-      link.href = "../accueil.html";
+      link.href = "../" + (toFR[file] || "accueil.html");
     } else {
       link.textContent = "🇬🇧 EN";
       link.setAttribute("aria-label", "See the English version");
-      link.href = path.indexOf("/pages/") !== -1 ? "../en/index.html" : "en/index.html";
+      const prefix = path.indexOf("/pages/") !== -1 ? "../en/" : "en/";
+      link.href = prefix + (toEN[file] || "index.html");
     }
     document.body.appendChild(link);
   }
