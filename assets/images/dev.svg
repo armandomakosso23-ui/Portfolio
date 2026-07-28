@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" width="280" height="220" role="img" aria-label="Illustration développement - fenêtre de code">
+  <defs>
+    <linearGradient id="dcard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111a2e"/>
+      <stop offset="1" stop-color="#0a1020"/>
+    </linearGradient>
+    <linearGradient id="dacc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="6" y="6" width="268" height="208" rx="24" fill="url(#dcard)" stroke="url(#dacc)" stroke-width="2"/>
+
+  <!-- barre fenêtre -->
+  <circle cx="34" cy="36" r="6" fill="#ff5f56"/>
+  <circle cx="54" cy="36" r="6" fill="#ffbd2e"/>
+  <circle cx="74" cy="36" r="6" fill="#27c93f"/>
+  <line x1="20" y1="56" x2="260" y2="56" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- lignes de code -->
+  <g stroke-width="8" stroke-linecap="round">
+    <line x1="34" y1="82"  x2="70"  y2="82"  stroke="#c084fc"/>
+    <line x1="82" y1="82"  x2="150" y2="82"  stroke="#38bdf8"/>
+    <line x1="52" y1="104" x2="120" y2="104" stroke="#93c5fd"/>
+    <line x1="132" y1="104" x2="176" y2="104" stroke="#facc15"/>
+    <line x1="52" y1="126" x2="96"  y2="126" stroke="#34d399"/>
+    <line x1="108" y1="126" x2="200" y2="126" stroke="#93c5fd"/>
+    <line x1="34" y1="148" x2="72"  y2="148" stroke="#c084fc"/>
+    <line x1="84" y1="148" x2="140" y2="148" stroke="#38bdf8"/>
+  </g>
+
+  <text x="140" y="196" font-family="monospace" font-size="15" letter-spacing="2"
+        text-anchor="middle" fill="#93c5fd" opacity="0.9">&lt;/&gt; Développement</text>
+</svg>

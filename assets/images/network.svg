@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" width="280" height="220" role="img" aria-label="Illustration réseau - topologie type Cisco Packet Tracer">
+  <defs>
+    <linearGradient id="ncard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111a2e"/>
+      <stop offset="1" stop-color="#0a1020"/>
+    </linearGradient>
+    <linearGradient id="nacc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="6" y="6" width="268" height="208" rx="24" fill="url(#ncard)" stroke="url(#nacc)" stroke-width="2"/>
+
+  <!-- liens -->
+  <g stroke="#38bdf8" stroke-width="2.5" opacity="0.7">
+    <line x1="140" y1="70" x2="60" y2="150"/>
+    <line x1="140" y1="70" x2="140" y2="150"/>
+    <line x1="140" y1="70" x2="220" y2="150"/>
+  </g>
+
+  <!-- routeur central -->
+  <g>
+    <circle cx="140" cy="62" r="26" fill="#0b1120" stroke="url(#nacc)" stroke-width="2.5"/>
+    <path d="M128 62h24M140 52l10 10-10 10M152 62l-10 10 10 10" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- postes / switch -->
+  <g fill="#0b1120" stroke="url(#nacc)" stroke-width="2.5">
+    <rect x="36" y="150" width="48" height="34" rx="6"/>
+    <rect x="116" y="150" width="48" height="34" rx="6"/>
+    <rect x="196" y="150" width="48" height="34" rx="6"/>
+  </g>
+  <g fill="#93c5fd">
+    <rect x="44" y="158" width="32" height="14" rx="2" opacity="0.8"/>
+    <rect x="124" y="158" width="32" height="14" rx="2" opacity="0.8"/>
+    <rect x="204" y="158" width="32" height="14" rx="2" opacity="0.8"/>
+  </g>
+
+  <text x="140" y="204" font-family="monospace" font-size="13" letter-spacing="1.5"
+        text-anchor="middle" fill="#93c5fd" opacity="0.9">Réseau · Packet Tracer</text>
+</svg>
