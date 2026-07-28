@@ -30,6 +30,6 @@
     <line x1="84" y1="148" x2="140" y2="148" stroke="#38bdf8"/>
   </g>
 
-  <text x="140" y="196" font-family="monospace" font-size="15" letter-spacing="2"
-        text-anchor="middle" fill="#93c5fd" opacity="0.9">&lt;/&gt; Développement</text>
+  <text x="140" y="196" font-family="monospace" font-size="22" font-weight="700" letter-spacing="1"
+        text-anchor="middle" fill="#93c5fd">&lt;/&gt; Dev</text>
 </svg>
