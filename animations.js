@@ -166,9 +166,67 @@
   }
 
   /* --------------------------------------------------
+     THÈME CLAIR / SOMBRE
+  ---------------------------------------------------*/
+  function getTheme() {
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") return t;
+    } catch (e) {}
+    return "dark";
+  }
+
+  function applyTheme(theme) {
+    document.body.classList.toggle("light-theme", theme === "light");
+  }
+
+  function addThemeToggle(theme) {
+    const btn = document.createElement("button");
+    btn.id = "theme-toggle";
+    btn.type = "button";
+    function setLabel(t) {
+      btn.textContent = t === "light" ? "🌙 Sombre" : "☀️ Clair";
+      btn.setAttribute("aria-label", t === "light" ? "Passer en thème sombre" : "Passer en thème clair");
+    }
+    setLabel(theme);
+    btn.addEventListener("click", function () {
+      const current = document.body.classList.contains("light-theme") ? "light" : "dark";
+      const next = current === "light" ? "dark" : "light";
+      applyTheme(next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      setLabel(next);
+    });
+    document.body.appendChild(btn);
+  }
+
+  /* --------------------------------------------------
+     BOUTON RETOUR EN HAUT
+  ---------------------------------------------------*/
+  function addBackToTop() {
+    const btn = document.createElement("button");
+    btn.id = "back-to-top";
+    btn.type = "button";
+    btn.textContent = "↑";
+    btn.setAttribute("aria-label", "Retour en haut de la page");
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    document.body.appendChild(btn);
+    window.addEventListener("scroll", function () {
+      btn.classList.toggle("show", window.scrollY > 300);
+    });
+  }
+
+  /* --------------------------------------------------
      LANCEMENT
   ---------------------------------------------------*/
   function start() {
+    // Thème et retour-en-haut : toujours actifs (indépendants des animations)
+    const theme = getTheme();
+    applyTheme(theme);
+    addThemeToggle(theme);
+    addBackToTop();
+
     const active = getPref() === "on";
     if (active) {
       initCodeRain();

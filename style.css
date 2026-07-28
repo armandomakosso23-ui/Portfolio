@@ -60,11 +60,11 @@ footer,
   transform: translateY(0);
 }
 
-/* Bouton flottant : activer/désactiver les animations */
-#anim-toggle {
+/* Boutons flottants (animations + thème) */
+#anim-toggle,
+#theme-toggle {
   position: fixed;
-  bottom: 18px;
-  right: 18px;
+  left: 18px;
   z-index: 100;
   padding: 8px 16px;
   border: 1px solid rgba(148, 163, 184, 0.4);
@@ -77,9 +77,137 @@ footer,
   transition: 0.2s;
 }
 
-#anim-toggle:hover {
+#theme-toggle { bottom: 18px; }
+#anim-toggle  { bottom: 60px; }
+
+#anim-toggle:hover,
+#theme-toggle:hover {
   border-color: #60a5fa;
   color: #60a5fa;
+}
+
+/* Bouton retour en haut */
+#back-to-top {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(56, 189, 248, 0.6);
+}
+
+/* Frise chronologique (Parcours) */
+.timeline {
+  position: relative;
+  margin: 10px 0 0 12px;
+  padding-left: 28px;
+  border-left: 2px solid rgba(96, 165, 250, 0.4);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 26px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -35px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #38bdf8;
+}
+
+.timeline-item h4 {
+  margin: 4px 0;
+  color: #f3f4f6;
+}
+
+.timeline-item p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------
+   THÈME CLAIR
+--------------------------------*/
+body.light-theme {
+  background: radial-gradient(circle at top, #eef2ff 0%, #e2e8f0 45%, #cbd5e1 100%);
+  color: #0f172a;
+}
+
+body.light-theme #code-rain { display: none; }
+
+body.light-theme nav {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+body.light-theme nav a { color: #1e293b; }
+body.light-theme nav a.active { color: #2563eb; background: rgba(37, 99, 235, 0.1); }
+
+body.light-theme section h3 { color: #0f172a; }
+body.light-theme p { color: #334155; }
+
+body.light-theme .card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+body.light-theme .card h4 { color: #0f172a; }
+body.light-theme .card p,
+body.light-theme .card li { color: #334155; }
+
+body.light-theme .skill-head { color: #334155; }
+body.light-theme .skill-bar { background: rgba(15, 23, 42, 0.12); }
+
+body.light-theme .timeline-item h4 { color: #0f172a; }
+body.light-theme .timeline-item p { color: #475569; }
+
+body.light-theme footer {
+  background: #e2e8f0;
+  color: #475569;
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+body.light-theme #anim-toggle,
+body.light-theme #theme-toggle {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1e293b;
+  border-color: rgba(15, 23, 42, 0.2);
 }
 
 /* Lien de navigation actif */
@@ -305,7 +433,8 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 10px 20px;
   padding: 12px 10vw;
 }
 
