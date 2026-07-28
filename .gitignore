@@ -1,0 +1,11 @@
+# Fichiers personnels — NE PAS publier en ligne
+Dossier Stage/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/

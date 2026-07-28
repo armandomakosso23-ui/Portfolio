@@ -1,0 +1,661 @@
+/* ------------------------------
+   STYLE GLOBAL – PS5
+--------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1f2937 0%, #020617 45%, #000 100%);
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* ------------------------------
+   ANIMATIONS DE CODE
+--------------------------------*/
+
+/* Fond "pluie de code" (canvas injecté par animations.js) */
+#code-rain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+/* On garde le contenu au-dessus du fond animé */
+header,
+nav,
+section,
+footer,
+.intro-container,
+.intro-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Effet machine à écrire : curseur clignotant */
+.tw-caret {
+  border-right: 2px solid #60a5fa;
+  animation: tw-blink 0.8s step-end infinite;
+}
+
+@keyframes tw-blink {
+  50% { border-color: transparent; }
+}
+
+/* Apparition en fondu au défilement */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bouton flottant : activer/désactiver les animations */
+#anim-toggle {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 100;
+  padding: 8px 16px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#anim-toggle:hover {
+  border-color: #60a5fa;
+  color: #60a5fa;
+}
+
+/* Lien de navigation actif */
+nav a.active {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.15);
+}
+
+/* Formulaire de contact */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 480px;
+  margin: 20px 0 30px;
+}
+
+.contact-form label {
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(15, 23, 42, 0.7);
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+}
+
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Liens */
+a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   HEADER – STYLE PS5
+--------------------------------*/
+header {
+  min-height: 65vh;
+  padding: 60px 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #020617 0%, #0b1120 40%, #1d4ed8 100%);
+  color: #f9fafb;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effets lumineux */
+header::before,
+header::after {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 250px;
+  left: -20%;
+  background: radial-gradient(circle, rgba(96,165,250,0.35), transparent 60%);
+  filter: blur(25px);
+}
+
+header::before {
+  top: -60px;
+}
+
+header::after {
+  bottom: -80px;
+  opacity: 0.5;
+}
+
+header h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+header h2 {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-top: 10px;
+  color: #cbd5f5;
+}
+
+header p {
+  max-width: 600px;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+/* Bouton PS5 */
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 25px rgba(37,99,235,0.5);
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37,99,235,0.7);
+}
+
+/* ------------------------------
+   NAVIGATION – STYLE PS5
+--------------------------------*/
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(15,23,42,0.85);
+  border-bottom: 1px solid rgba(148,163,184,0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  padding: 12px 10vw;
+}
+
+nav a {
+  color: #e5e7eb;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: 0.25s;
+}
+
+nav a:hover {
+  transform: translateY(-3px);
+  color: #60a5fa;
+}
+
+/* ------------------------------
+   SECTIONS
+--------------------------------*/
+section {
+  padding: 60px 10vw;
+}
+
+section h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #f3f4f6;
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+}
+
+/* ------------------------------
+   CARTES – STYLE PS5
+--------------------------------*/
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: radial-gradient(circle at top left, rgba(148,163,184,0.25), rgba(15,23,42,0.95));
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid rgba(148,163,184,0.3);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 45px rgba(37,99,235,0.4);
+}
+
+.card h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #f9fafb;
+}
+
+.card p,
+.card li {
+  color: #d1d5db;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------
+   LISTES
+--------------------------------*/
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* ------------------------------
+   CONTACT
+--------------------------------*/
+#contact p,
+#cv p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* ------------------------------
+   FOOTER
+--------------------------------*/
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+  color: #9ca3af;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(55,65,81,0.8);
+}
+
+/* Scroll fluide */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Menu CV dropdown */
+.cv-menu {
+  position: relative;
+}
+
+.cv-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: rgba(15,23,42,0.95);
+  border: 1px solid rgba(148,163,184,0.3);
+  border-radius: 12px;
+  padding: 10px 0;
+  list-style: none;
+  display: none;
+  min-width: 180px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.cv-menu:hover .cv-dropdown {
+  display: block;
+}
+
+.cv-dropdown li {
+  padding: 8px 16px;
+}
+
+.cv-dropdown li:hover {
+  background: rgba(148,163,184,0.2);
+}
+
+#deleteCV {
+  background: none;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  text-align: left;
+}
+
+#deleteCV:hover {
+  background: rgba(239,68,68,0.2);
+}
+
+/* ------------------------------
+   IMAGES – STYLE PS5
+--------------------------------*/
+.img-ps5 {
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.img-ps5:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(37,99,235,0.5);
+}
+
+/* Bouton Retour */
+.back-btn {
+  display: inline-block;
+  margin-top: 12px;
+  color: #60a5fa;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   PAGE INTRO – STYLE PS5
+--------------------------------*/
+.intro-body {
+  background: linear-gradient(135deg, #1f2937, #0b1120, #1d4ed8);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #f9fafb;
+}
+
+.intro-container {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1fr; /* colonne centrale plus petite */
+  padding: 60px 10vw;
+  align-items: center;
+  gap: 40px;
+}
+
+.intro-left h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.intro-left p {
+  font-size: 1.1rem;
+  max-width: 450px;
+}
+
+.intro-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.btn-secondary {
+  padding: 12px 32px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* IMAGE INTRO – VERSION CORRIGÉE */
+.intro-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-avatar {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transition: 0.4s ease;
+}
+
+.intro-avatar:hover {
+  transform: scale(1.05);
+}
+
+.intro-right h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.intro-footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+}
+
+.intro-socials {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.intro-socials a {
+  color: #93c5fd;
+  transition: 0.2s;
+}
+
+.intro-socials a:hover {
+  color: #fff;
+}
+
+/* Carte Outils & Méthodes – style bleu PS5 */
+.card.tools {
+  background: radial-gradient(circle at top left, rgba(96,165,250,0.35), rgba(15,23,42,0.95));
+  border: 1px solid rgba(96,165,250,0.4);
+  box-shadow: 0 18px 40px rgba(37,99,235,0.5);
+}
+
+.card.tools:hover {
+  box-shadow: 0 22px 45px rgba(37,99,235,0.7);
+}
+
+/* Bouton CV */
+.cv-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 25px rgba(37,99,235,0.5);
+  transition: 0.2s;
+}
+
+.cv-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37,99,235,0.7);
+}
+
+/* Wrapper pour contrôler l'image */
+.intro-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* IMAGE FLOTTANTE STYLE INTRO */
+.about-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+}
+
+.about-photo img {
+  width: 280px;          /* taille idéale */
+  height: 280px;         /* carré parfait */
+  object-fit: cover;     /* évite les déformations */
+  border-radius: 20px;   /* style moderne */
+  box-shadow: 0 25px 45px rgba(0,0,0,0.55);
+}
+
+/* Animation flottante */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ------------------------------
+   RESPONSIVE – TABLETTE
+--------------------------------*/
+@media (max-width: 900px) {
+  header {
+    padding: 50px 6vw;
+    min-height: 50vh;
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+  }
+
+  header h2 {
+    font-size: 1.2rem;
+  }
+
+  section {
+    padding: 40px 6vw;
+  }
+
+  nav ul {
+    padding: 12px 6vw;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Intro : passage à une seule colonne */
+  .intro-container {
+    grid-template-columns: 1fr;
+    padding: 40px 6vw;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .intro-left p,
+  .intro-right p {
+    margin: 0 auto;
+  }
+
+  .intro-buttons {
+    justify-content: center;
+  }
+}
+
+/* ------------------------------
+   RESPONSIVE – MOBILE
+--------------------------------*/
+@media (max-width: 600px) {
+  header {
+    padding: 40px 6vw;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p,
+  header h2 {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  /* Cartes en une seule colonne */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-left h1 {
+    font-size: 2rem;
+  }
+
+  .intro-avatar {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-photo img {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* CV : l'iframe s'adapte à l'écran */
+  iframe {
+    height: 480px;
+  }
+
+  .intro-socials {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+}
