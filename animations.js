@@ -32,15 +32,21 @@
     window.addEventListener("resize", resize);
 
     function draw() {
+      // couleurs adaptées au thème (clair ou sombre), relues à chaque frame
+      const isLight = document.body.classList.contains("light-theme");
+      const trail = isLight ? "rgba(226, 232, 240, 0.13)" : "rgba(2, 6, 23, 0.10)";
+      const headColor = isLight ? "#1e3a8a" : "#93c5fd";
+      const bodyColor = isLight ? "#2563eb" : "#3b82f6";
+
       // léger voile pour créer la traînée
-      ctx.fillStyle = "rgba(2, 6, 23, 0.10)";
+      ctx.fillStyle = trail;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
         const text = glyphs[Math.floor(Math.random() * glyphs.length)];
         // la tête de colonne est plus claire
-        ctx.fillStyle = drops[i] % 20 === 0 ? "#93c5fd" : "#3b82f6";
+        ctx.fillStyle = drops[i] % 20 === 0 ? headColor : bodyColor;
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
         if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
