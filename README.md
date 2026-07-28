@@ -12,7 +12,7 @@ effet machine à écrire, apparitions au défilement).
 
 - **Page d'entrée** : `index.html`
 - **Accueil** : `accueil.html`
-- **Pages** : À propos, Compétences, Expériences, Projets, Contact & CV
+- **Pages** : À propos, Compétences, Expériences, Projets, Contact 
 
 ## 🛠️ Technologies
 

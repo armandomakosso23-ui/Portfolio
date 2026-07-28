@@ -2,6 +2,11 @@
 Dossier Stage/
 assets/cv/
 
+# Images matricielles non utilisées (on ne publie que l'avatar SVG)
+assets/images/*.jpg
+assets/images/*.jpeg
+assets/images/*.png
+
 # Fichiers système
 .DS_Store
 Thumbs.db

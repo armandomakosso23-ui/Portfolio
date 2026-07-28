@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300" role="img" aria-label="Monogramme Armando Makosso">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- fond circulaire -->
+  <circle cx="150" cy="150" r="148" fill="url(#bg)"/>
+  <circle cx="150" cy="150" r="146" fill="none" stroke="url(#txt)" stroke-width="4" opacity="0.9"/>
+
+  <!-- monogramme AM -->
+  <text x="150" y="150" font-family="Segoe UI, system-ui, sans-serif" font-size="140"
+        font-weight="700" text-anchor="middle" dominant-baseline="central"
+        fill="url(#txt)" filter="url(#glow)">AM</text>
+
+  <!-- petit clin d'oeil code -->
+  <text x="150" y="232" font-family="monospace" font-size="26" letter-spacing="2"
+        text-anchor="middle" fill="#93c5fd" opacity="0.85">&lt;/&gt;</text>
+</svg>
