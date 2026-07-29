@@ -32,27 +32,23 @@
     <section>
         <h3>Musique</h3>
         <p style="margin-bottom: 24px; max-width: 720px;">
-            En dehors du code, la musique fait partie de mon quotidien. Voici un accès à mon
-            univers musical sur Spotify. 🎧
+            En dehors du code, la musique fait partie de mon quotidien. Écoute ma playlist
+            directement ci-dessous. 🎧
         </p>
 
-        <div class="cards">
-            <div class="card">
-                <h4>🎵 Mon profil Spotify</h4>
-                <p>Retrouvez mes artistes et mes sons préférés directement sur mon compte.</p>
-                <p style="margin-top: 14px;">
-                    <a href="https://open.spotify.com/user/31qwpbmbqkytxqy6c5vzsoq4msma"
-                       target="_blank" rel="noopener" class="spotify-btn">▶ Ouvrir mon profil Spotify</a>
-                </p>
-            </div>
+        <!-- LECTEUR SPOTIFY INTÉGRÉ (joue directement dans la page) -->
+        <div class="spotify-embed">
+            <iframe src="https://open.spotify.com/embed/playlist/4MmAVuJWPCE8qKFXSuEfhm?utm_source=generator&theme=0"
+                    height="420"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    title="Playlist Spotify d'Armando Makosso"></iframe>
         </div>
 
-        <!-- LECTEUR INTÉGRÉ (à activer avec une playlist PUBLIQUE) -->
-        <!--
-          Pour afficher un vrai lecteur ici, colle l'ID d'une playlist PUBLIQUE dans le src :
-          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/TON_ID_PLAYLIST?utm_source=generator"
-                  width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        -->
+        <p style="margin-top: 20px;">
+            <a href="https://open.spotify.com/user/31qwpbmbqkytxqy6c5vzsoq4msma"
+               target="_blank" rel="noopener" class="spotify-btn">▶ Voir mon profil Spotify</a>
+        </p>
 
         <a href="../accueil.html" class="back-btn">← Retour</a>
     </section>
