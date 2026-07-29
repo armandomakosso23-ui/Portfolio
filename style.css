@@ -464,6 +464,51 @@ button.btn-secondary {
   box-shadow: 0 16px 32px rgba(29, 185, 84, 0.4);
 }
 
+/* Liste des titres avec pochette */
+.tracklist {
+  max-width: 720px;
+  margin-bottom: 26px;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.track:hover {
+  background: rgba(29, 185, 84, 0.12);
+}
+
+.track-cover {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-title {
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+.track-artist {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+body.light-theme .track-title { color: #0f172a; }
+body.light-theme .track-artist { color: #64748b; }
+
 /* ------------------------------
    PAGE MUSIQUE – ACCENTS VERTS
 --------------------------------*/

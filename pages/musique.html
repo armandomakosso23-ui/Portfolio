@@ -46,6 +46,9 @@
             <img class="cover-img" src="../assets/images/cover-6.svg" alt="Pochette Prisme" loading="lazy">
         </div>
 
+        <h4 style="margin: 8px 0 12px; color: #1db954;">Mes titres</h4>
+        <div id="tracklist" class="tracklist"></div>
+
         <!-- LECTEUR SPOTIFY INTÉGRÉ (joue directement dans la page) -->
         <div class="spotify-embed">
             <iframe src="https://open.spotify.com/embed/playlist/4MmAVuJWPCE8qKFXSuEfhm?utm_source=generator&theme=0"
@@ -59,6 +62,38 @@
     </section>
 
     <footer>© 2026 – Armando Makosso</footer>
+
+    <!-- Liste des titres avec une pochette (aléatoire) à côté de chacun -->
+    <script>
+      (function () {
+        var list = document.getElementById("tracklist");
+        if (!list) return;
+        var songs = [
+          { t: "Evicted", a: "Nemzzz" },
+          { t: "8PM", a: "Nemzzz" },
+          { t: "Us vs Them", a: "Nemzzz" },
+          { t: "Redemption (feat. Nemzzz)", a: "Kidwild, Nemzzz" },
+          { t: "PTSD", a: "Nemzzz" },
+          { t: "Be Honest", a: "Jorja Smith, Burna Boy" },
+          { t: "Not You", a: "Lil Mosey" },
+          { t: "Call", a: "Lil Mosey" }
+        ];
+        var covers = [
+          "cover-1.svg", "cover-2.svg", "cover-3.svg",
+          "cover-4.svg", "cover-5.svg", "cover-6.svg"
+        ];
+        songs.forEach(function (s) {
+          var cover = covers[Math.floor(Math.random() * covers.length)];
+          var row = document.createElement("div");
+          row.className = "track";
+          row.innerHTML =
+            '<img class="track-cover" src="../assets/images/' + cover + '" alt="">' +
+            '<div class="track-info"><span class="track-title">' + s.t +
+            '</span><span class="track-artist">' + s.a + "</span></div>";
+          list.appendChild(row);
+        });
+      })();
+    </script>
 
     <script src="../animations.js"></script>
 </body>
