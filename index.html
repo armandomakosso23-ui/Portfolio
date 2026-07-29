@@ -33,6 +33,7 @@
 
             <div class="intro-buttons">
                 <a href="accueil.html" class="btn">Entrer</a>
+                <button id="open-game" type="button" class="btn-secondary">🎮 Jouer</button>
             </div>
         </div>
 
@@ -66,6 +67,24 @@
         </div>
     </footer>
 
+    <!-- MINI-JEU "SURVIE" -->
+    <div id="game-overlay" hidden>
+        <div class="game-box">
+            <h2>🧟 Survie</h2>
+            <p class="game-info">Clique sur les infectés avant qu'ils atteignent 🧑. Tu as 3 vies — ça accélère !</p>
+            <canvas id="game-canvas" width="600" height="360"></canvas>
+            <div class="game-hud">
+                <span id="game-score">Score : 0</span>
+                <span id="game-hp">❤️❤️❤️</span>
+            </div>
+            <div class="game-actions">
+                <button id="game-start" type="button" class="btn">Commencer</button>
+                <button id="game-close" type="button" class="btn-secondary">Fermer</button>
+            </div>
+        </div>
+    </div>
+
     <script src="animations.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
