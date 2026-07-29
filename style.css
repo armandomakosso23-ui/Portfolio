@@ -404,6 +404,38 @@ button.btn-secondary {
   margin-top: 0;
 }
 
+/* Bouton Spotify */
+.spotify-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: #1db954;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(29, 185, 84, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spotify-btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(29, 185, 84, 0.6);
+}
+
+/* Lecteur Spotify intégré */
+.spotify-embed {
+  margin: 20px 0 8px;
+  max-width: 720px;
+}
+
+.spotify-embed iframe {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
 /* Liens */
 a {
   color: #60a5fa;
