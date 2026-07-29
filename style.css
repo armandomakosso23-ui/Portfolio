@@ -428,12 +428,41 @@ button.btn-secondary {
 .spotify-embed {
   margin: 20px 0 8px;
   max-width: 720px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(29, 185, 84, 0.4);
+  background: rgba(29, 185, 84, 0.06);
+  box-shadow: 0 14px 34px rgba(29, 185, 84, 0.25);
 }
 
 .spotify-embed iframe {
   width: 100%;
   border: none;
   border-radius: 12px;
+}
+
+/* ------------------------------
+   PAGE MUSIQUE – ACCENTS VERTS
+--------------------------------*/
+.music-page section h3 {
+  border-left-color: #1db954;
+}
+
+.music-page nav a.active {
+  color: #1db954;
+  background: rgba(29, 185, 84, 0.15);
+}
+
+.music-page section h3::after {
+  content: " 🎧";
+}
+
+.music-page .back-btn {
+  color: #1db954;
+}
+
+.music-page .back-btn:hover {
+  color: #1ed760;
 }
 
 /* Liens */
