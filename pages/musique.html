@@ -37,7 +37,14 @@
         </p>
 
         <h4 style="margin-bottom: 12px; color: #1db954;">Mes pochettes</h4>
-        <div id="covers" class="covers-grid"></div>
+        <div class="covers-grid">
+            <img class="cover-img" src="../assets/images/cover-1.svg" alt="Pochette Minuit" loading="lazy">
+            <img class="cover-img" src="../assets/images/cover-2.svg" alt="Pochette Skyline" loading="lazy">
+            <img class="cover-img" src="../assets/images/cover-3.svg" alt="Pochette Néon" loading="lazy">
+            <img class="cover-img" src="../assets/images/cover-4.svg" alt="Pochette Fréquences" loading="lazy">
+            <img class="cover-img" src="../assets/images/cover-5.svg" alt="Pochette Cosmos" loading="lazy">
+            <img class="cover-img" src="../assets/images/cover-6.svg" alt="Pochette Prisme" loading="lazy">
+        </div>
 
         <!-- LECTEUR SPOTIFY INTÉGRÉ (joue directement dans la page) -->
         <div class="spotify-embed">
@@ -52,27 +59,6 @@
     </section>
 
     <footer>© 2026 – Armando Makosso</footer>
-
-    <!-- Génère des pochettes colorées aléatoires -->
-    <script>
-      (function () {
-        var grid = document.getElementById("covers");
-        if (!grid) return;
-        var notes = ["🎵", "🎧", "🎶", "🎤", "🎸", "🥁", "🎹", "🎷"];
-        for (var i = 0; i < 8; i++) {
-          var h1 = Math.floor(Math.random() * 360);
-          var h2 = (h1 + 40 + Math.floor(Math.random() * 80)) % 360;
-          var tile = document.createElement("div");
-          tile.className = "cover";
-          tile.style.background =
-            "linear-gradient(135deg, hsl(" + h1 + ",70%,48%), hsl(" + h2 + ",65%,28%))";
-          tile.innerHTML =
-            '<span class="cover-note">' + notes[i % notes.length] +
-            '</span><span class="cover-label">Titre ' + (i + 1) + "</span>";
-          grid.appendChild(tile);
-        }
-      })();
-    </script>
 
     <script src="../animations.js"></script>
 </body>

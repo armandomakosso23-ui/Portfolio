@@ -450,30 +450,18 @@ button.btn-secondary {
   margin-bottom: 26px;
 }
 
-.cover {
+.cover-img {
+  width: 100%;
   aspect-ratio: 1;
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: #fff;
+  display: block;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.cover:hover {
+.cover-img:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 16px 32px rgba(29, 185, 84, 0.4);
-}
-
-.cover-note { font-size: 2.2rem; }
-
-.cover-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  opacity: 0.92;
 }
 
 /* ------------------------------
