@@ -441,6 +441,41 @@ button.btn-secondary {
   border-radius: 12px;
 }
 
+/* Grille de pochettes (covers aléatoires) */
+.covers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 14px;
+  max-width: 720px;
+  margin-bottom: 26px;
+}
+
+.cover {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cover:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(29, 185, 84, 0.4);
+}
+
+.cover-note { font-size: 2.2rem; }
+
+.cover-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.92;
+}
+
 /* ------------------------------
    PAGE MUSIQUE – ACCENTS VERTS
 --------------------------------*/
